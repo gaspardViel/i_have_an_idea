@@ -9,7 +9,7 @@ Centraliser et organiser : notes, todos, documents, et petits projets dans une a
 ## Concepts clés
 
 - **Note** — capture rapide d'une idée ou observation, format libre.
-- **Todo** — tâche actionnable, trackée dans une liste centralisée.
+- **Todo** — tâche actionnable, trackée dans `TODO.md` à la racine du dépôt.
 - **Document** — contenu structuré avec un objectif précis (plan, compte-rendu, référence).
 - **Projet** — ensemble de fichiers autour d'un sujet ou d'un objectif concret.
 - **Skill** — automatisation Claude Code dans `.claude/skills/`, invocable par `/nom-du-skill`.
