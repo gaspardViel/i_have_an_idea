@@ -7,16 +7,36 @@ argument-hint: "What would you like to learn about?"
 
 The user has asked you to teach them something. This is a stateful request — they intend to learn the topic over multiple sessions.
 
+## Workspace Routing
+
+The argument to this skill is the subject (e.g. `teach python`). Derive the workspace path from it:
+
+- Normalize to lowercase, replace spaces with hyphens
+- Prefix with `learn-`: `python` → `learn-python/`
+- All workspace files live under that folder at the repo root
+
+If no argument is given, ask the user what they want to learn before proceeding.
+
 ## Teaching Workspace
 
-Treat the current directory as a teaching workspace. State is captured in:
+All state lives under `learn-<subject>/`:
 
 - `MISSION.md`: Why the user is interested in the topic. Ground all teaching here.
-- `./reference/*.html`: Compressed learnings — cheat sheets, reference algorithms, glossaries. Designed for quick reference and printing.
+- `reference/*.html`: Compressed learnings — cheat sheets, reference algorithms, glossaries. Designed for quick reference and printing.
 - `RESOURCES.md`: High-quality sources to ground teaching in contextual knowledge.
-- `./learning-records/*.md`: What the user has learned. Like ADRs — capture non-obvious lessons and key insights. Titled `0001-<dash-case-name>.md`.
-- `./lessons/*.html`: Self-contained HTML files, one per lesson. The primary unit of teaching.
+- `learning-records/*.md`: What the user has learned. Like ADRs — capture non-obvious lessons and key insights. Titled `0001-<dash-case-name>.md`.
+- `lessons/*.html`: Self-contained HTML files, one per lesson. The primary unit of teaching.
 - `NOTES.md`: User preferences and working notes.
+
+## Device Context
+
+The user works on **iOS (mobile)**. All HTML files (lessons, reference) must be:
+
+- Fully responsive — `<meta name="viewport" content="width=device-width, initial-scale=1">`
+- Touch-friendly: large tap targets (min 44px), no hover-only interactions
+- Readable without zooming: base font size ≥ 16px, generous line-height
+- No horizontal scroll on small screens
+- Test mentally at 390px wide (iPhone 14 viewport)
 
 ## Philosophy
 
