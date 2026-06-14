@@ -8,7 +8,7 @@ Centraliser et organiser : notes, todos, documents, et petits projets dans une a
 
 ## Concepts clés
 
-- **Note** — capture rapide d'une idée ou observation, format libre. Vit dans `notes/`.
+- **Note** — capture rapide d'une idée ou observation, format libre. Vit dans `notes/`. Peut être promue en Document (déplacement vers `documents/`) ou en Projet (déplacement vers `projets/`).
 - **Todo** — tâche actionnable, trackée dans `TODO.md` à la racine du dépôt.
 - **Document** — contenu structuré avec un objectif précis (plan, compte-rendu, référence). Vit dans `documents/`.
 - **Projet** — ensemble de fichiers autour d'un sujet ou d'un objectif concret. Vit dans `projets/<nom-du-projet>/`. Une fois terminé, déplacé dans `projets/_archive/`.
