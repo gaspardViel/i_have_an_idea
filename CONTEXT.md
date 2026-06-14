@@ -11,7 +11,7 @@ Centraliser et organiser : notes, todos, documents, et petits projets dans une a
 - **Note** — capture rapide d'une idée ou observation, format libre. Vit dans `notes/`.
 - **Todo** — tâche actionnable, trackée dans `TODO.md` à la racine du dépôt.
 - **Document** — contenu structuré avec un objectif précis (plan, compte-rendu, référence). Vit dans `documents/`.
-- **Projet** — ensemble de fichiers autour d'un sujet ou d'un objectif concret. Vit dans `projets/<nom-du-projet>/`.
+- **Projet** — ensemble de fichiers autour d'un sujet ou d'un objectif concret. Vit dans `projets/<nom-du-projet>/`. Une fois terminé, déplacé dans `projets/_archive/`.
 - **Skill** — automatisation Claude Code dans `.claude/skills/`, invocable par `/nom-du-skill`.
 
 ## Invariants
