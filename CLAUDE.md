@@ -18,3 +18,17 @@ Invoquer avec `/nom-du-skill`, ou Claude les charge automatiquement si pertinent
 - Chaque idée/projet dans son propre dossier à la racine
 - Structures plates : max 3 niveaux de profondeur
 - Les skills du projet dans `.claude/skills/`
+
+## Agent skills
+
+### Issue tracker
+
+GitHub (`gaspardViel/i_have_an_idea`) via `gh` CLI. Voir `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Vocabulaire canonique à cinq labels. Voir `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context : `CONTEXT.md` à la racine + ADRs dans `docs/adr/`. Voir `docs/agents/domain.md`.
