@@ -11,7 +11,7 @@ description: Génère un compte rendu structuré pour la Commission Entretien du
 
 L'utilisateur fournit l'un ou les deux éléments suivants :
 - **Ordre du jour** préparé avant la réunion
-- **Transcription ou résumé** de la réunion (dicté ou textuel)
+- **Transcription ou résumé** de la réunion — généralement produit par Fathom (IA de transcription)
 
 Si l'ordre du jour manque, demande-le. Si la date manque, demande-la.
 
@@ -60,4 +60,4 @@ Date proposée : [si mentionnée]
 - Les notes de déroulé doivent être assez détaillées pour qu'un membre absent puisse suivre
 - Chaque action doit avoir un responsable nommé — si aucun n'est mentionné, marque `[à assigner]`
 - Les décisions sont numérotées et datées
-- Après génération, demande si les actions doivent être ajoutées à `TODO.md`
+- Après génération, propose d'ajouter automatiquement les actions dans `TODO.md` (fichier de suivi des tâches existant)
