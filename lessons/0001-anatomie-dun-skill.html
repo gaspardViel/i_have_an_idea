@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon 1 — Anatomie d'un skill</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #2a5d84;
+      --bg: #faf9f7;
+      --code-bg: #f0ede8;
+      --border: #ddd;
+      --green: #1a6b3c;
+      --orange: #b84c00;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Georgia", serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+    .meta {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    h1 { font-size: 1.9rem; line-height: 1.25; margin-bottom: 0.4rem; }
+    h2 { font-size: 1.2rem; margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--accent); }
+    h3 { font-size: 1rem; margin-top: 1.5rem; margin-bottom: 0.4rem; font-style: italic; color: var(--muted); }
+    p { margin-bottom: 1.2rem; }
+    .subtitle { color: var(--muted); font-style: italic; margin-bottom: 2rem; }
+    code {
+      font-family: "Courier New", monospace;
+      font-size: 0.85em;
+      background: var(--code-bg);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    pre {
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    pre code { background: none; padding: 0; }
+    .insight {
+      background: #eef5fb;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+    .example-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      background: white;
+    }
+    .example-box .label {
+      font-family: monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .quiz {
+      background: #fff8e8;
+      border: 1px solid #e8c96d;
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    .quiz h2 { color: var(--orange); margin-top: 0; }
+    .quiz ol { padding-left: 1.5rem; }
+    .quiz li { margin-bottom: 0.75rem; }
+    .exercise {
+      background: #eaf7ed;
+      border: 1px solid #6dbf82;
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .exercise h2 { color: var(--green); margin-top: 0; }
+    .tag {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.72rem;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 0.15em 0.5em;
+      border-radius: 3px;
+      margin-right: 0.3em;
+    }
+    .analogy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .analogy-grid .cell {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+    }
+    .analogy-grid .cell .col-head {
+      font-family: monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="meta">Commission Entretien · Skills Claude Code · Leçon 1 / N</div>
+
+  <h1>Anatomie d'un skill</h1>
+  <p class="subtitle">Ce qu'est vraiment un skill, pourquoi ça marche hors du code,<br>et comment en lire un sans se perdre.</p>
+
+  <h2>L'idée centrale</h2>
+
+  <p>Un skill, c'est <strong>une procédure écrite une fois, exécutée par Claude autant de fois que vous voulez.</strong></p>
+
+  <p>Ce n'est pas du code. Ce n'est pas un plugin. C'est un fichier texte qui dit à Claude : <em>"quand on t'invoque pour cette tâche, voilà comment tu opères."</em></p>
+
+  <div class="insight">
+    Pensez à un skill comme à un <strong>mode opératoire</strong> dans un centre de méditation : une fiche lamifiée sur l'armoire qui dit "Pour préparer la salle Dhamma : vérifier les coussins → nettoyer l'autel → vérifier la ventilation." Claude lit cette fiche et l'applique — chaque fois, sans oubli.
+  </div>
+
+  <h2>La structure d'un skill</h2>
+
+  <p>Chaque skill vit dans un dossier <code>.claude/skills/nom-du-skill/</code> et contient au minimum un fichier <strong>SKILL.md</strong>.</p>
+
+  <pre><code>commission-entretien/           ← votre projet
+└── .claude/
+    └── skills/
+        ├── compte-rendu/       ← un skill
+        │   └── SKILL.md
+        ├── todo-update/        ← un autre skill
+        │   └── SKILL.md
+        └── ordre-du-jour/
+            ├── SKILL.md
+            └── REFERENCE.md   ← si les instructions sont longues</code></pre>
+
+  <h2>Anatomie d'un SKILL.md</h2>
+
+  <p>Un SKILL.md a deux parties : le <strong>frontmatter</strong> (métadonnées) et le <strong>corps</strong> (les instructions).</p>
+
+  <div class="example-box">
+    <div class="label">Exemple — SKILL.md du skill /compte-rendu</div>
+    <pre><code>---
+name: compte-rendu
+description: Génère un compte rendu structuré depuis des notes brutes
+             ou une transcription vocale. Utiliser après une réunion
+             de la Commission Entretien.
+---
+
+# Compte Rendu — Commission Entretien
+
+## Ce que tu reçois
+Des notes brutes, une transcription, ou un résumé oral.
+
+## Ce que tu produis
+Un fichier Markdown avec :
+- Date, participants
+- Décisions prises (numérotées)
+- Tâches créées (qui fait quoi, avant quand)
+- Points reportés à la prochaine réunion
+
+## Ton comportement
+1. Demande la date si non précisée.
+2. Identifie les tâches → ajoute-les à TODO.md.
+3. Garde un ton neutre et factuel.
+4. Propose un titre de fichier : YYYY-MM-DD-CR-commission.md</code></pre>
+  </div>
+
+  <h2>Les deux éléments clés du frontmatter</h2>
+
+  <h3>name</h3>
+  <p>Le nom devient la commande. <code>name: compte-rendu</code> → vous tapez <code>/compte-rendu</code>. Simple.</p>
+
+  <h3>description</h3>
+  <p>C'est ce que Claude lit pour décider <em>automatiquement</em> de charger le skill, même si vous ne l'invoquez pas explicitement. Une bonne description = Claude qui se déclenche au bon moment sans qu'on le lui demande.</p>
+
+  <div class="insight">
+    La <code>description</code> est le déclencheur automatique. Le <code>name</code> est le déclencheur manuel. Les deux sont complémentaires.
+  </div>
+
+  <h2>Skills code vs skills non-code — même logique</h2>
+
+  <div class="analogy-grid">
+    <div class="cell">
+      <div class="col-head">Ingénieur logiciel</div>
+      <code>/tdd</code> — tests avant le code<br>
+      <code>/diagnose</code> — débugger méthodiquement<br>
+      <code>/deploy</code> — livrer en prod
+    </div>
+    <div class="cell">
+      <div class="col-head">Coordinateur de commission</div>
+      <code>/compte-rendu</code> — structurer une réunion<br>
+      <code>/todo-update</code> — mettre à jour les tâches<br>
+      <code>/ordre-du-jour</code> — préparer la prochaine réunion
+    </div>
+  </div>
+
+  <p>La mécanique est identique. Seul le domaine change. Claude n'a pas besoin de code pour être utile — il a besoin d'<strong>instructions claires sur comment opérer</strong>.</p>
+
+  <h2>Ce que Claude fait quand vous invoquez un skill</h2>
+
+  <ol style="padding-left:1.5rem; margin-bottom:1.2rem;">
+    <li>Il lit le SKILL.md correspondant.</li>
+    <li>Il charge éventuellement REFERENCE.md si il existe.</li>
+    <li>Il exécute les instructions en les adaptant au contexte courant.</li>
+    <li>Il utilise les outils disponibles (lire des fichiers, écrire, appeler des agents).</li>
+  </ol>
+
+  <p>Vous n'avez rien à répéter d'une session à l'autre. Le skill <em>est</em> votre mémoire opérationnelle.</p>
+
+  <div class="quiz">
+    <h2>Vérification — 3 questions</h2>
+    <ol>
+      <li>Si vous créez un skill appelé <code>bilan-semaine</code>, quelle commande tapez-vous pour l'invoquer ?</li>
+      <li>Quelle partie du SKILL.md permet à Claude de se déclencher <em>automatiquement</em> sans que vous tapiez une commande ?</li>
+      <li>Quelle est la différence entre SKILL.md et REFERENCE.md ? Quand utilise-t-on l'un vs l'autre ?</li>
+    </ol>
+    <p style="margin-top:1rem; color:var(--muted); font-size:0.85rem;">Répondez directement dans le chat — Claude corrigera et passera à la suite.</p>
+  </div>
+
+  <div class="exercise">
+    <h2>Exercice pratique</h2>
+    <p>Décrivez en 3-5 phrases <strong>ce que devrait faire votre premier skill <code>/compte-rendu</code></strong> pour votre commission :</p>
+    <ul style="padding-left:1.5rem; margin-top:0.5rem;">
+      <li>Qu'est-ce qu'il reçoit en entrée ? (notes ? transcription vocale ?)</li>
+      <li>Qu'est-ce qu'il produit ? (un fichier ? dans quel format ?)</li>
+      <li>Quelles sont les 2-3 règles métier propres à votre commission ?</li>
+    </ul>
+    <p style="margin-top:1rem; color:var(--muted); font-size:0.85rem;">Répondez dans le chat. On construira le skill ensemble dans la leçon 2.</p>
+  </div>
+
+  <footer>
+    Leçon 1 · Commission Entretien — Skills Claude Code ·
+    <a href="https://github.com/anthropics/claude-code" style="color:var(--muted);">github.com/anthropics/claude-code</a>
+  </footer>
+
+</body>
+</html>
