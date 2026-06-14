@@ -8,9 +8,9 @@ Centraliser et organiser : notes, todos, documents, et petits projets dans une a
 
 ## Concepts clés
 
-- **Note** — capture rapide d'une idée ou observation, format libre.
+- **Note** — capture rapide d'une idée ou observation, format libre. Vit dans `notes/`.
 - **Todo** — tâche actionnable, trackée dans `TODO.md` à la racine du dépôt.
-- **Document** — contenu structuré avec un objectif précis (plan, compte-rendu, référence).
+- **Document** — contenu structuré avec un objectif précis (plan, compte-rendu, référence). Vit dans `documents/`.
 - **Projet** — ensemble de fichiers autour d'un sujet ou d'un objectif concret.
 - **Skill** — automatisation Claude Code dans `.claude/skills/`, invocable par `/nom-du-skill`.
 
@@ -26,6 +26,9 @@ Centraliser et organiser : notes, todos, documents, et petits projets dans une a
 /
 ├── CLAUDE.md          # instructions pour les agents
 ├── CONTEXT.md         # ce fichier
+├── TODO.md            # liste de tâches centralisée
+├── notes/             # captures rapides, format libre
+├── documents/         # contenu structuré (plans, comptes-rendus, références)
 ├── docs/
 │   ├── agents/        # config des skills engineering
 │   └── adr/           # décisions d'architecture
