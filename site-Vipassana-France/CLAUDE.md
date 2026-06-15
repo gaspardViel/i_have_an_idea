@@ -18,6 +18,16 @@ Skills installées via `npx skills@latest add mattpocock/skills` (29 skills).
 | `/handoff` | Passation de contexte entre sessions |
 | `/caveman` | Mode ultra-compressé (~75% tokens) |
 
-## Prochaine étape
+## Agent skills
 
-Lancer `/setup-matt-pocock-skills` pour configurer ce dépôt.
+### Issue tracker
+
+Issues locales en markdown sous `.scratch/<feature>/`. Voir `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Labels par défaut : `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. Voir `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Contexte unique — `CONTEXT.md` à la racine + `docs/adr/`. Voir `docs/agents/domain.md`.
