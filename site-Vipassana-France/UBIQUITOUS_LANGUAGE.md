@@ -25,9 +25,9 @@ Centres actifs en France :
 
 | Terme | Définition | Alias à éviter |
 |-------|-----------|----------------|
-| **Étudiant** | Personne qui suit ou a suivi un Cours de 10 jours | Méditant, Yogi, Pratiquant, Élève |
-| **Ancien étudiant** | Étudiant ayant complété au moins un Cours de 10 jours — a accès à la section protégée | Méditant expérimenté, Yogi, Pratiquant |
-| **Serviteur** | Ancien étudiant qui contribue bénévolement au bon fonctionnement d'un Centre | Bénévole, Volontaire (le mot Dhamma est "server" ou "serviteur") |
+| **Nouvel étudiant** | Personne qui n'a pas encore complété de Cours de 10 jours | Débutant, Novice |
+| **Ancien étudiant** | Personne ayant complété au moins un Cours de 10 jours — a accès à la Section Anciens étudiants | Méditant expérimenté, Yogi, Pratiquant, Étudiant |
+| **Servant du Dhamma** | Ancien étudiant qui contribue bénévolement au bon fonctionnement d'un Centre | Serviteur, Bénévole, Volontaire |
 | **Enseignant assistant** | Personne formée et autorisée à enseigner la Vipassana dans les Centres | Professeur, Instructeur |
 | **Bénévole technique** | Personne qui contribue à la maintenance du Site (ex. Gaspard, Éric) | Développeur, Admin |
 
@@ -47,18 +47,18 @@ Centres actifs en France :
 |-------|-----------|----------------|
 | **Section Centre** | Partie du Site dédiée à un Centre spécifique (pages, infos d'accès, actualités) | Rubrique, Espace |
 | **Section Anciens étudiants** | Partie du Site protégée par mot de passe, accessible aux Anciens étudiants uniquement | Espace membres, Intranet |
-| **Opportunité de Service** | Annonce de besoin en Serviteurs dans un Centre | Offre de bénévolat, Annonce |
+| **Opportunité de Service** | Annonce de besoin en Servants du Dhamma dans un Centre | Offre de bénévolat, Annonce |
 | **Actualité** | Article publié sur le Site, lié à un Centre ou à Vipassana France en général | News, Post, Article de blog |
 | **Template** | Thème WordPress cible, conçu pour être proposé au réseau Dhamma Europe | Thème, Design |
 
 ## Relations
 
 - Un **Centre** héberge des **Cours**
-- Un **Étudiant** devient **Ancien étudiant** après avoir complété un **Cours de 10 jours**
-- Un **Ancien étudiant** peut devenir **Serviteur** dans un **Centre**
+- Un **Nouvel étudiant** devient **Ancien étudiant** après avoir complété un **Cours de 10 jours**
+- Un **Ancien étudiant** peut devenir **Servant du Dhamma** dans un **Centre**
 - L'**Inscription** à un **Cours** se fait toujours sur dhamma.org, jamais sur le **Site**
 - Le **Calendrier** est hébergé sur dhamma.org — le **Site** y renvoie par un lien
-- La **Section Anciens étudiants** contient des **Actualités** de centres et des **Opportunités de Service**
+- La **Section Anciens étudiants** contient des **Actualités** de Centres et des **Opportunités de Service**
 
 ## Exemple de dialogue
 
@@ -78,5 +78,5 @@ Centres actifs en France :
 
 - **"Retraite" / "Stage" / "Session"** → toujours **Cours**. Les trois termes coexistaient ; on unifie sur "Cours" qui est le terme officiel Dhamma.
 - **"Site" vs "Centre"** → **Site** = le site web. **Centre** = le lieu physique. Ne jamais utiliser "site" pour parler d'un Centre.
-- **"Bénévole" vs "Serviteur"** → **Serviteur** pour la personne qui sert dans un Centre (terminologie Dhamma). **Bénévole technique** pour ceux qui travaillent sur le Site.
-- **"Méditant" / "Yogi" / "Pratiquant"** → **Étudiant** ou **Ancien étudiant** selon si le Cours de 10 jours a été complété. "Yogi" est acceptable en contexte informel mais pas dans le code ni les issues.
+- **"Bénévole" / "Serviteur" / "Volontaire"** → **Servant du Dhamma** (terminologie officielle). **Bénévole technique** pour ceux qui travaillent sur le Site.
+- **"Méditant" / "Yogi" / "Pratiquant" / "Étudiant"** → **Nouvel étudiant** (n'a pas fait de Cours) ou **Ancien étudiant** (a complété au moins un Cours de 10 jours). "Yogi" acceptable en contexte informel, jamais dans le code ni les issues.
