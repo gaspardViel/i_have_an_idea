@@ -79,15 +79,28 @@ BESOINS // [besoins pendant la prestation : courses, entretien du logement, aide
 
 ```
 [Civilité Nom] - [adresse sans code postal] - [téléphone formaté] - [numéro urgence si disponible]
+ACCUEIL// [particularités importantes à savoir avant d'entrer : état général, troubles cognitifs, caractère, points d'attention — ultra-concis]
 ACCES// [Métro/RER/Bus X (Lx, Lx)], [code grille si applicable], [escalier si applicable], [étage], [porte], [particularité accès importante]
 BESOINS// [besoins ultra-concis séparés par des virgules]
+Réf. logiciel : [Nom du travailleur social référent — référent Apologic]
 ```
+
+### Règles ACCUEIL// dans l'ACCÈS
+- Ne garder que ce qui est **utile sur le terrain** : troubles cognitifs, agressivité, ne pas sonner (dort), chien, etc.
+- Ne pas dupliquer le détail médical complet (qui reste dans le Commentaire bureau)
+- Si rien d'important → omettre la ligne ACCUEIL//
+
+### Réf. logiciel
+- Le travailleur social référent = la personne référente dans Apologic
+- Cette information apparaît **uniquement dans l'ACCÈS**, pas dans le Commentaire bureau
 
 ### Exemple :
 ```
 Mme Martin - 28 rue de Wattignies Paris - 01.00.00.00 - Urgence fille : 06.00.00.00
+ACCUEIL// Troubles cognitifs légers, bienveillante, ne pas évoquer le décès du mari
 ACCES// Métro Daumesnil (L6, L8), code grille : 2854, escalier 2, 2ème étage, porte 12, sonner plusieurs fois (entend mal)
 BESOINS// entretien du logement, repassage, courses
+Réf. logiciel : Mme Dupont
 ```
 
 ---
