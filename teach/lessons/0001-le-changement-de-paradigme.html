@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon 1 — Le changement de paradigme</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #2c5f8a;
+      --accent-light: #e8f0f7;
+      --bg: #faf9f7;
+      --card: #ffffff;
+      --border: #e0ddd8;
+      --success: #2d6a4f;
+      --success-bg: #d8f3dc;
+      --fail: #9b2335;
+      --fail-bg: #fde8ea;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 18px;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .lesson-tag {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: bold;
+      margin: 2.5rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .callout {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 2rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+    /* Comparison table */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+    }
+
+    .comparison-header {
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+
+    .col-web { background: #f3f0ea; border-right: 1px solid var(--border); }
+    .col-code { background: #e8f0f7; }
+
+    .comparison-row {
+      display: contents;
+    }
+
+    .comparison-cell {
+      padding: 0.7rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .comparison-cell.web { border-right: 1px solid var(--border); background: #faf8f5; }
+    .comparison-cell.code { background: #f5f8fb; }
+
+    .comparison-cell .label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Workflow diagram */
+    .workflow {
+      margin: 2rem 0;
+    }
+
+    .workflow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-num {
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-text { flex: 1; }
+    .step-text strong { display: block; margin-bottom: 0.1rem; }
+    .step-text span { font-size: 0.9rem; color: var(--muted); }
+
+    .workflow-divider {
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    /* Quiz */
+    .quiz-section {
+      margin-top: 3rem;
+      border-top: 2px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .quiz-title {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .question {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .question p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .option {
+      padding: 0.6rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      background: var(--bg);
+      transition: border-color 0.15s, background 0.15s;
+      text-align: left;
+      font-family: 'Georgia', serif;
+    }
+
+    .option:hover { border-color: var(--accent); background: var(--accent-light); }
+
+    .option.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .option.wrong {
+      border-color: var(--fail);
+      background: var(--fail-bg);
+      color: var(--fail);
+    }
+
+    .feedback {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .feedback.show { display: block; }
+    .feedback.correct { background: var(--success-bg); color: var(--success); }
+    .feedback.wrong { background: var(--fail-bg); color: var(--fail); }
+
+    .score-panel {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .score-panel.show { display: block; }
+    .score-num { font-size: 2.5rem; font-weight: bold; color: var(--accent); }
+    .score-label { color: var(--muted); font-size: 0.9rem; }
+
+    .next-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: 'Georgia', serif;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="lesson-tag">Leçon 1 de ?</div>
+    <h1>Le changement de paradigme</h1>
+    <p class="subtitle">De "copier-coller avec ChatGPT" à "Claude travaille dans ton manuscrit"</p>
+  </header>
+
+  <p>
+    Tu as un brouillon avancé. Tu sais utiliser ChatGPT ou Claude.ai. Jusqu'ici tu travailles
+    probablement comme ça : tu copies un passage, tu le colles dans le chat, tu demandes quelque chose,
+    tu recolles la réponse dans ton document.
+  </p>
+
+  <p>
+    Ça marche. Mais c'est lent, et il y a un problème plus profond : <strong>Claude ne voit jamais
+    l'ensemble du livre</strong>. Il répond à un fragment sans savoir ce qui precède ou suit.
+  </p>
+
+  <h2>L'idée centrale de Claude Code</h2>
+
+  <p>
+    <a href="https://docs.anthropic.com/en/claude-code/overview" target="_blank">Claude Code</a> est
+    une interface en ligne de commande (CLI) qui te permet de donner à Claude l'accès direct à tes
+    fichiers. Au lieu de copier-coller, Claude <em>lit et modifie</em> tes fichiers lui-même.
+  </p>
+
+  <div class="callout">
+    <p><strong>L'analogie :</strong> Avec Claude.ai web, tu décris ton appartement à un architecte par téléphone.
+    Avec Claude Code, l'architecte est <em>dans l'appartement avec toi</em>, il voit les murs, les mesures,
+    la lumière — et il peut tout de suite esquisser des changements.</p>
+  </div>
+
+  <h2>La différence concrète pour ton livre</h2>
+
+  <div class="comparison">
+    <div class="comparison-header col-web">Claude.ai web</div>
+    <div class="comparison-header col-code">Claude Code</div>
+
+    <div class="comparison-cell web">
+      <div class="label">Accès au texte</div>
+      Ce que tu colles dans le chat
+    </div>
+    <div class="comparison-cell code">
+      <div class="label">Accès au texte</div>
+      Tous tes fichiers de chapitres à la fois
+    </div>
+
+    <div class="comparison-cell web">
+      <div class="label">Mémoire du livre</div>
+      Aucune entre les sessions
+    </div>
+    <div class="comparison-cell code">
+      <div class="label">Mémoire du livre</div>
+      Un fichier <code>CLAUDE.md</code> avec la bible du livre
+    </div>
+
+    <div class="comparison-cell web">
+      <div class="label">Modifier un chapitre</div>
+      Tu recolles manuellement
+    </div>
+    <div class="comparison-cell code">
+      <div class="label">Modifier un chapitre</div>
+      Claude édite le fichier directement
+    </div>
+
+    <div class="comparison-cell web">
+      <div class="label">Cohérence entre chapitres</div>
+      Impossible (il ne voit qu'un extrait)
+    </div>
+    <div class="comparison-cell code">
+      <div class="label">Cohérence entre chapitres</div>
+      Claude peut lire tout le manuscrit avant de répondre
+    </div>
+  </div>
+
+  <h2>Comment ça marche en pratique</h2>
+
+  <p>Voici les deux workflows comparés. Pour une tâche simple :
+  <em>"Révise ce paragraphe pour qu'il corresponde au ton du reste de ma mémoire."</em></p>
+
+  <div class="workflow">
+    <div class="workflow-divider">— AVEC CLAUDE.AI WEB —</div>
+    <div class="workflow-step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Ouvre Claude.ai</strong>
+        <span>Nouvelle conversation</span>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Copie des extraits représentatifs du ton</strong>
+        <span>3-4 paragraphes que tu choisis manuellement pour "montrer" le style</span>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Colle le paragraphe à réviser</strong>
+        <span>+ Explique le contexte (qui parle ? quelle époque ? quel état d'esprit ?)</span>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>Recolles la réponse dans ton document</strong>
+        <span>Si c'est dans le mauvais sens, recommence depuis le début</span>
+      </div>
+    </div>
+
+    <div class="workflow-divider">— AVEC CLAUDE CODE —</div>
+    <div class="workflow-step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Ouvre le terminal dans ton dossier de livre</strong>
+        <span>Tape <code>claude</code> et appuie sur Entrée</span>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Écris ta demande en langage naturel</strong>
+        <span><em>"Révise le paragraphe 3 du chapitre 7 pour qu'il corresponde au ton du chapitre 2"</em></span>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Claude lit tes fichiers, modifie le passage</strong>
+        <span>Le fichier est édité directement. Tu approuves ou demandes d'ajuster.</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Et la "bible du livre" : CLAUDE.md</h2>
+
+  <p>
+    Claude Code lit automatiquement un fichier appelé <code>CLAUDE.md</code> au démarrage.
+    C'est là où tu mets tout ce que Claude doit savoir sur ton livre — une fois pour toutes :
+  </p>
+
+  <div class="callout">
+    <p>
+      <strong>Exemple de CLAUDE.md pour une mémoire :</strong><br><br>
+      <em>Ce manuscrit est une autobiographie. La narratrice s'appelle Sylvie,
+      la voix est à la première personne, passé composé, registre intime mais jamais sentimental.
+      Les chapitres 1-4 couvrent l'enfance à Lyon (1978-1990).
+      Le ton vire à l'humour noir dans la deuxième partie.
+      Ne jamais utiliser le mot "ressentir".</em>
+    </p>
+  </div>
+
+  <p>
+    Chaque fois que tu lances Claude Code dans ton dossier de livre, il commence
+    <em>avec ce contexte déjà chargé</em>. Plus besoin de réexpliquer à chaque session.
+  </p>
+
+  <h2>Et VS Code dans tout ça ?</h2>
+
+  <p>
+    VS Code est l'éditeur où tu écris. Claude Code peut s'y intégrer, mais il peut aussi
+    fonctionner en parallèle dans un terminal. La leçon suivante couvrira l'installation.
+    Pour l'instant, retiens l'essentiel : <strong>VS Code = ton espace d'écriture,
+    Claude Code = ton assistant qui vit dans le même espace.</strong>
+  </p>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <div class="quiz-title">Vérifie ta compréhension</div>
+
+    <!-- Q1 -->
+    <div class="question" id="q1">
+      <p>Tu veux vérifier que le personnage de ta mère est décrit de façon cohérente dans tous tes chapitres. Quelle approche est la plus adaptée ?</p>
+      <div class="options">
+        <button class="option" onclick="answer('q1', this, false)">
+          Copier chaque description de ta mère dans Claude.ai et lui demander de comparer
+        </button>
+        <button class="option" onclick="answer('q1', this, true)">
+          Lancer Claude Code dans ton dossier de livre et lui demander de vérifier la cohérence du personnage dans tous les chapitres
+        </button>
+        <button class="option" onclick="answer('q1', this, false)">
+          Faire une recherche Ctrl+F sur "maman" dans chaque fichier manuellement
+        </button>
+      </div>
+      <div class="feedback" id="q1-feedback"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question" id="q2">
+      <p>À quoi sert le fichier <code>CLAUDE.md</code> dans un projet de livre ?</p>
+      <div class="options">
+        <button class="option" onclick="answer('q2', this, false)">
+          C'est là où Claude sauvegarde automatiquement ses réponses
+        </button>
+        <button class="option" onclick="answer('q2', this, false)">
+          C'est un fichier de configuration technique pour l'installation
+        </button>
+        <button class="option" onclick="answer('q2', this, true)">
+          C'est la "bible" du livre que Claude lit à chaque démarrage — ton style, tes personnages, tes contraintes
+        </button>
+      </div>
+      <div class="feedback" id="q2-feedback"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question" id="q3">
+      <p>Quelle est la différence principale entre Claude.ai (web) et Claude Code pour l'écriture ?</p>
+      <div class="options">
+        <button class="option" onclick="answer('q3', this, false)">
+          Claude Code est plus intelligent que Claude.ai
+        </button>
+        <button class="option" onclick="answer('q3', this, true)">
+          Claude Code a accès à tes fichiers et peut les modifier directement ; Claude.ai ne voit que ce que tu colles dans le chat
+        </button>
+        <button class="option" onclick="answer('q3', this, false)">
+          Claude.ai est gratuit et Claude Code est payant
+        </button>
+      </div>
+      <div class="feedback" id="q3-feedback"></div>
+    </div>
+
+    <div class="score-panel" id="score-panel">
+      <div class="score-num" id="score-num"></div>
+      <div class="score-label">bonnes réponses sur 3</div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--muted);" id="score-msg"></p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="container">
+  <p>
+    Sources :
+    <a href="https://docs.anthropic.com/en/claude-code/overview" target="_blank">Claude Code — Overview (Anthropic)</a> ·
+    <a href="https://docs.anthropic.com/en/claude-code/memory" target="_blank">Claude Code — Memory & CLAUDE.md</a>
+  </p>
+</footer>
+
+<script>
+  const answers = { q1: null, q2: null, q3: null };
+  const feedbacks = {
+    q1: {
+      correct: "Exactement. Claude Code peut lire tous tes fichiers en une seule fois et comparer les descriptions à travers l'ensemble du manuscrit — sans que tu aies à faire le moindre copier-coller.",
+      wrong: "Ce n'est pas la meilleure approche. Claude.ai ne voit que ce que tu colles, alors que Claude Code peut lire tous tes chapitres directement."
+    },
+    q2: {
+      correct: "Oui ! CLAUDE.md est la mémoire persistante que tu construis une fois. Claude le relit à chaque session, donc tu n'as jamais à réexpliquer les bases de ton livre.",
+      wrong: "Pas tout à fait. CLAUDE.md est un fichier que toi tu écris — c'est la bible de ton projet, lue par Claude à chaque démarrage."
+    },
+    q3: {
+      correct: "Précisément. C'est le changement fondamental : Claude Code a une 'vision' de tout ton projet, pas seulement d'un fragment collé.",
+      wrong: "Ce n'est pas une question de puissance ou de prix. La différence clé est l'accès aux fichiers et la capacité à travailler directement dans ton manuscrit."
+    }
+  };
+
+  let answered = 0;
+  let correct = 0;
+
+  function answer(qid, btn, isCorrect) {
+    if (answers[qid] !== null) return; // Already answered
+    answers[qid] = isCorrect;
+
+    const question = document.getElementById(qid);
+    const allOptions = question.querySelectorAll('.option');
+    allOptions.forEach(o => o.disabled = true);
+
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+    const feedback = document.getElementById(qid + '-feedback');
+    feedback.textContent = isCorrect ? '✓ ' + feedbacks[qid].correct : '✗ ' + feedbacks[qid].wrong;
+    feedback.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
+
+    if (isCorrect) correct++;
+    answered++;
+
+    if (answered === 3) {
+      const panel = document.getElementById('score-panel');
+      document.getElementById('score-num').textContent = correct + '/3';
+      const msgs = [
+        "Relis les parties sur CLAUDE.md et le tableau de comparaison — c'est le coeur de la leçon.",
+        "Bon début. La prochaine leçon renforcera ces bases par la pratique.",
+        "Parfait. Tu as bien saisi le changement de paradigme. Prêt pour l'installation."
+      ];
+      document.getElementById('score-msg').textContent = msgs[correct];
+      panel.classList.add('show');
+    }
+  }
+</script>
+</body>
+</html>
